@@ -31,7 +31,7 @@ function Shot({
               {dict.work.shotPending}
             </span>
           </div>
-          <span className="display break-all text-[clamp(1.5rem,3.2vw,2.4rem)] text-foreground transition-colors duration-300 group-hover:text-background">
+          <span className="display [overflow-wrap:anywhere] text-[clamp(1.5rem,3.2vw,2.4rem)] text-foreground transition-colors duration-300 group-hover:text-background">
             {project.domain.replace(/\.(de|com)$/, "")}
             <span className="text-accent transition-colors duration-300 group-hover:text-background/70">
               .{project.domain.split(".").pop()}
@@ -78,9 +78,12 @@ export function Work({ dict, lang }: { dict: Dict; lang: Locale }) {
               <h3 className="text-lg font-bold text-foreground">
                 {project.name}
               </h3>
-              <span className="shrink-0 text-sm text-muted">
-                {project.category[lang]}
-              </span>
+              {/* Kategorie nur, wenn der echte Screenshot sie nicht schon im Tile trägt */}
+              {project.hasShots && (
+                <span className="shrink-0 text-sm text-muted">
+                  {project.category[lang]}
+                </span>
+              )}
             </div>
             <span className="mt-1 inline-block text-sm text-muted transition-colors group-hover:text-accent">
               {project.domain} ↗
