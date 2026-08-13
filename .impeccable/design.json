@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-13T00:00:00Z",
+  "title": "Design System: Kreativwerk",
+  "extensions": {
+    "colorMeta": {
+      "signal-orange": {
+        "role": "primary",
+        "displayName": "Signal-Orange",
+        "canonical": "#ff4d00",
+        "tonalRamp": ["oklch(20% 0.09 34)", "oklch(30% 0.13 34)", "oklch(40% 0.17 34)", "oklch(50% 0.20 34)", "oklch(64% 0.23 34)", "oklch(75% 0.16 40)", "oklch(86% 0.09 45)", "oklch(95% 0.03 50)"]
+      },
+      "signal-orange-soft": {
+        "role": "primary",
+        "displayName": "Signal-Orange Soft",
+        "canonical": "rgba(255, 77, 0, 0.12)",
+        "tonalRamp": ["rgba(255,77,0,0.35)", "rgba(255,77,0,0.28)", "rgba(255,77,0,0.22)", "rgba(255,77,0,0.16)", "rgba(255,77,0,0.12)", "rgba(255,77,0,0.08)", "rgba(255,77,0,0.05)", "rgba(255,77,0,0.03)"]
+      },
+      "near-black-stage": {
+        "role": "neutral",
+        "displayName": "Near-Black Stage",
+        "canonical": "#0b0b0c",
+        "tonalRamp": ["oklch(15% 0.004 285)", "oklch(18% 0.005 285)", "oklch(21% 0.007 285)", "oklch(30% 0.007 285)", "oklch(45% 0.007 285)", "oklch(60% 0.006 285)", "oklch(78% 0.004 285)", "oklch(95% 0.002 285)"]
+      },
+      "stage-surface": {
+        "role": "neutral",
+        "displayName": "Stage Surface",
+        "canonical": "#131316",
+        "tonalRamp": ["oklch(15% 0.005 285)", "oklch(18% 0.005 285)", "oklch(24% 0.006 285)", "oklch(34% 0.006 285)", "oklch(48% 0.006 285)", "oklch(62% 0.005 285)", "oklch(80% 0.004 285)", "oklch(95% 0.002 285)"]
+      },
+      "stage-surface-2": {
+        "role": "neutral",
+        "displayName": "Stage Surface 2",
+        "canonical": "#1a1a1f",
+        "tonalRamp": ["oklch(16% 0.007 285)", "oklch(21% 0.008 285)", "oklch(28% 0.008 285)", "oklch(38% 0.008 285)", "oklch(50% 0.007 285)", "oklch(64% 0.006 285)", "oklch(82% 0.004 285)", "oklch(95% 0.002 285)"]
+      },
+      "warm-off-white": {
+        "role": "neutral",
+        "displayName": "Warm Off-White",
+        "canonical": "#f5f4f0",
+        "tonalRamp": ["oklch(20% 0.004 95)", "oklch(32% 0.004 95)", "oklch(45% 0.005 95)", "oklch(58% 0.006 95)", "oklch(70% 0.007 95)", "oklch(82% 0.006 95)", "oklch(90% 0.005 95)", "oklch(97% 0.004 95)"]
+      },
+      "warm-stone": {
+        "role": "neutral",
+        "displayName": "Warm Stone",
+        "canonical": "#a3a19a",
+        "tonalRamp": ["oklch(20% 0.006 100)", "oklch(30% 0.007 100)", "oklch(42% 0.008 100)", "oklch(54% 0.008 100)", "oklch(70% 0.008 100)", "oklch(80% 0.007 100)", "oklch(89% 0.005 100)", "oklch(96% 0.003 100)"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(245, 244, 240, 0.1)",
+        "tonalRamp": ["rgba(245,244,240,0.4)", "rgba(245,244,240,0.3)", "rgba(245,244,240,0.22)", "rgba(245,244,240,0.16)", "rgba(245,244,240,0.1)", "rgba(245,244,240,0.07)", "rgba(245,244,240,0.05)", "rgba(245,244,240,0.03)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero-Headline und Kontakt-Bookend; Klasse .display (wdth 118, 800, -0.025em, 0.98), erscheint per maskiertem Zeilen-Reveal." },
+      "headline": { "displayName": "Headline", "purpose": "Sektionsüberschriften; dieselbe .display-Behandlung eine Stufe kleiner." },
+      "title": { "displayName": "Title", "purpose": "Prozess-Schritte, Referenz-Namen, Chat-Titel — fett ohne Display-Achsen." },
+      "body": { "displayName": "Body", "purpose": "Fließtext in Warm Stone, max-w-prose." },
+      "label": { "displayName": "Label", "purpose": "Uppercase-Meta (Marquee, Kategorien, Draft-Titel) und Tag-Chips; Zähler zusätzlich tabular-nums." }
+    },
+    "shadows": [
+      { "name": "chat-launcher-glow", "value": "0 8px 30px rgba(255, 77, 0, 0.35)", "purpose": "Oranges Glühen ausschließlich am schwebenden Chat-Launcher." },
+      { "name": "dialog", "value": "0 25px 50px -12px rgb(0 0 0 / 0.25)", "purpose": "Tiefer weicher Schatten nur am Chat-Dialog ab sm; alle anderen Flächen sind flach." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Die einzige Kurve der Welt — Entrances, Sweeps, Reveals, Dialog." },
+      { "name": "sweep", "value": "transform 0.5s cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Orange-Sweep: scaleY(0)→1 von unten, verlässt nach oben; nur @media (hover: hover)." },
+      { "name": "clip-reveal", "value": "clip-path 1s cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Services-Zeilen: inset(0 100% 0 0)→0, gestaffelt 0.12s pro Zeile, ausgelöst über .in-view." },
+      { "name": "line-draw", "value": "transform 1.1s cubic-bezier(0.19, 1, 0.22, 1)", "purpose": "Prozess-Akzentlinien: scaleX(0)→1 von links, Staffel 0.15s." },
+      { "name": "line-reveal", "value": "1.1s cubic-bezier(0.19, 1, 0.22, 1), Staffel 0.12s", "purpose": "Maskierter Zeilen-Reveal (y 110%→0) für Display-Headlines; bei reduced-motion statisch." },
+      { "name": "marquee", "value": "36s linear infinite", "purpose": "Domain-Marquee, translateX(0→-50%); bei reduced-motion aus." },
+      { "name": "ui-transition", "value": "0.3s", "purpose": "Farb- und Scale-Übergänge an Buttons, Links, Rändern." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Orange Pille mit Near-Black-Text — die Konversionsgeste (Projekt anfragen).",
+      "html": "<button class=\"ds-btn-primary\">Projekt anfragen</button>",
+      "css": ".ds-btn-primary { background: var(--accent, #ff4d00); color: var(--background, #0b0b0c); border: none; border-radius: 9999px; padding: 14px 28px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: transform 0.3s; } .ds-btn-primary:hover { transform: scale(1.04); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #ff4d00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Sweep Pill",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Haarlinien-Pille, die der Orange-Sweep beim Hover von unten füllt.",
+      "html": "<a href=\"#\" class=\"ds-btn-sweep\">Referenzen ansehen</a>",
+      "css": ".ds-btn-sweep { position: relative; isolation: isolate; overflow: hidden; display: inline-block; border: 1px solid var(--line, rgba(245,244,240,0.1)); border-radius: 9999px; padding: 14px 28px; font-weight: 600; font-size: 1rem; color: var(--foreground, #f5f4f0); text-decoration: none; transition: color 0.3s, border-color 0.3s; } .ds-btn-sweep::after { content: \"\"; position: absolute; inset: 0; z-index: -1; background: var(--accent, #ff4d00); transform: scaleY(0); transform-origin: bottom; transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1); } .ds-btn-sweep:hover { border-color: var(--accent, #ff4d00); color: var(--background, #0b0b0c); } .ds-btn-sweep:hover::after { transform: scaleY(1); transform-origin: top; } .ds-btn-sweep:focus-visible { outline: 2px solid var(--accent, #ff4d00); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tag Chip",
+      "kind": "chip",
+      "refersTo": "tag-chip",
+      "description": "Nicht-interaktive Leistungs-Tags als Haarlinien-Pillen.",
+      "html": "<span class=\"ds-chip\">KI-Integration</span>",
+      "css": ".ds-chip { display: inline-block; border: 1px solid var(--line, rgba(245,244,240,0.1)); border-radius: 9999px; padding: 4px 12px; font-size: 0.75rem; font-weight: 600; color: var(--muted, #a3a19a); }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Dunkles Eingabefeld mit Haarlinie; Fokus und Caret orange.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Beschreibung *\" />",
+      "css": ".ds-input { width: 100%; background: var(--background, #0b0b0c); border: 1px solid var(--line, rgba(245,244,240,0.1)); border-radius: 8px; padding: 10px 14px; font-size: 0.875rem; color: var(--foreground, #f5f4f0); caret-color: var(--accent, #ff4d00); } .ds-input::placeholder { color: var(--muted, #a3a19a); } .ds-input:focus { border-color: var(--accent, #ff4d00); outline: none; }"
+    },
+    {
+      "name": "Chat Bubbles",
+      "kind": "custom",
+      "refersTo": "chat-bubble-user",
+      "description": "Nutzer orange rechts, Assistent tonal links; je eine Ecke auf 6px gebrochen.",
+      "html": "<div class=\"ds-chat\"><p class=\"ds-bubble-assistant\">Hallo! Worum geht es — eine Website, eine App oder eine individuelle Software?</p><p class=\"ds-bubble-user\">Eine Website für unser Handwerksunternehmen.</p></div>",
+      "css": ".ds-chat { display: flex; flex-direction: column; gap: 12px; } .ds-bubble-assistant { align-self: flex-start; max-width: 85%; background: var(--surface-2, #1a1a1f); color: var(--foreground, #f5f4f0); border-radius: 16px 16px 16px 6px; padding: 10px 16px; font-size: 0.875rem; margin: 0; } .ds-bubble-user { align-self: flex-end; max-width: 85%; background: var(--accent, #ff4d00); color: var(--background, #0b0b0c); border-radius: 16px 16px 6px 16px; padding: 10px 16px; font-size: 0.875rem; font-weight: 500; margin: 0; }"
+    },
+    {
+      "name": "Process Step",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Prozess-Schritt: orange 2px-Linie oben, tabularer Zähler, Titel, Fließtext.",
+      "html": "<div class=\"ds-step\"><span class=\"ds-step-line\"></span><span class=\"ds-step-count\">1 / 4</span><h3 class=\"ds-step-title\">Erstgespräch</h3><p class=\"ds-step-text\">Wir hören zu: Ziele, Zielgruppe, Budgetrahmen — und sagen ehrlich, was sinnvoll ist.</p></div>",
+      "css": ".ds-step { position: relative; padding-top: 20px; max-width: 260px; } .ds-step-line { position: absolute; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent, #ff4d00); } .ds-step-count { font-variant-numeric: tabular-nums; font-size: 0.875rem; font-weight: 700; color: var(--accent, #ff4d00); } .ds-step-title { margin: 8px 0 0; font-size: 1.25rem; font-weight: 700; color: var(--foreground, #f5f4f0); } .ds-step-text { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.6; color: var(--muted, #a3a19a); }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Ruhige Warm-Stone-Links, Hover hellt auf Off-White — kein Orange, keine Unterstreichung.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-link\">Leistungen</a><a href=\"#\" class=\"ds-nav-link\">Referenzen</a><a href=\"#\" class=\"ds-nav-link\">Ablauf</a><a href=\"#\" class=\"ds-nav-link\">Kontakt</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 32px; } .ds-nav-link { font-size: 0.875rem; color: var(--muted, #a3a19a); text-decoration: none; transition: color 0.3s; } .ds-nav-link:hover { color: var(--foreground, #f5f4f0); } .ds-nav-link:focus-visible { outline: 2px solid var(--accent, #ff4d00); outline-offset: 3px; border-radius: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die dunkle Bühne (The Dark Stage)",
+    "overview": "Kreativwerk nimmt den Kategorie-Standard der modernen Digitalagentur — dunkle Bühne, große Typografie, eine Signalfarbe — und führt ihn kompromisslos sauber aus. Verweigert wird nicht die Konvention, sondern ihre halbherzige Ausführung: keine Stock-Karten, kein Deko-Glas, keine zweite Akzentfarbe. Auf Near-Black liegt warmes Off-White, und ein einziges Signal-Orange trägt jede Betonung — vom CTA über die Textauswahl bis zum Cursor-Caret im Eingabefeld.\n\nDie Welt ist flächig statt kartenhaft: Inhalte sitzen auf großen, ruhigen Flächen, getrennt durch 1px-Haarlinien in Off-White bei 10 % Deckung. Hierarchie entsteht fast ausschließlich typografisch — Archivo als einzige Familie, im Display-Register breit gestellt (wdth 118) und extrafett. Bewegung ist die zweite Stimme des Systems: maskierte Zeilen-Reveals, Clip-Reveals, sich aufziehende Akzentlinien und ein Domain-Marquee, alle auf derselben easeOutExpo-Kurve, alle mit reduced-motion-Fallback. Die Sprache gegenüber Kund:innen ist Deutsch per „Sie“ (Englisch gleichwertig).",
+    "keyCharacteristics": [
+      "Near-Black-Bühne (#0b0b0c) mit warmem Off-White (#f5f4f0) und genau einer Signalfarbe (#ff4d00)",
+      "Archivo als einzige Schriftfamilie; Display-Register über die Breitenachse (wdth 118), nicht über neue Fonts",
+      "Flächen statt Karten: 1px-Linien gliedern, Radius nur an Tiles (12px), Chat (16px) und Pills",
+      "Der Orange-Sweep als wiederkehrende Hover-Geste (Services-Zeilen, Referenz-Tiles, Sekundär-Pills)",
+      "Eine Motion-Grammatik: easeOutExpo cubic-bezier(0.19, 1, 0.22, 1) überall, reduced-motion immer bedacht",
+      "Durchgestaltete Browser-Oberflächen: orange Selection, orange Caret, oranger Focus-Ring, eigene Scrollbar, tabulare Ziffern"
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Orange ist die einzige Akzentfarbe des Systems — es gibt keine Sekundärfarbe, keinen Verlauf in eine zweite Buntheit, kein Grün für Erfolg oder Rot für Fehler. Auch Fehlermeldungen sprechen Orange.", "section": "colors" },
+      { "name": "The Ink-on-Orange Rule", "body": "Text auf Orange ist immer Near-Black (#0b0b0c), nie Weiß. Beim Sweep wechseln Titel auf background, Sekundärtext auf background/80 — der Kontrast auf Orange ist Teil der Geste.", "section": "colors" },
+      { "name": "The Hairline Rule", "body": "Linien sind 1px und immer rgba(245, 244, 240, 0.1). Betonte Linien (Prozess-Schritte) sind 2px und orange. Andere Linienstärken und -farben existieren nicht.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Archivo ist die einzige Schriftfamilie. Neue Register entstehen über Gewicht, Größe und die Breitenachse (wdth 118) — nie über eine zweite Familie.", "section": "typography" },
+      { "name": "The Masked Bookend Rule", "body": "Der maskierte Zeilen-Reveal ist den Display-Headlines vorbehalten und rahmt die Seite: Hero am Anfang, Kontakt-Headline am Ende. Er wird nicht auf Fließtext oder Titles angewandt.", "section": "typography" },
+      { "name": "The Flat Stage Rule", "body": "Flächen im Seitenfluss werfen keine Schatten. Schatten sind dem Chat-Layer vorbehalten, der tatsächlich über der Seite schwebt.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do jede Betonung mit Signal-Orange (#ff4d00) setzen und Text darauf immer in Near-Black (#0b0b0c) — The Ink-on-Orange Rule.",
+      "Do den Orange-Sweep als Hover-Geste wiederverwenden (.sweep, .sweep-tile, .sweep-pill), statt neue Hover-Effekte zu erfinden; nur unter @media (hover: hover).",
+      "Do alle Bewegung auf easeOutExpo cubic-bezier(0.19, 1, 0.22, 1) fahren und für jede Animation einen reduced-motion-Fallback bereitstellen (statisch rendern, nie Inhalt hinter Masken verstecken).",
+      "Do Flächen mit 1px-Haarlinien (rgba(245, 244, 240, 0.1)) gliedern und Tiefe tonal schichten (#0b0b0c → #131316 → #1a1a1f).",
+      "Do Display-Text mit .display setzen (wdth 118, 800, -0.025em, 0.98) und Zahlen/Meta-Zeilen mit .tabular.",
+      "Do deutsche Copy per „Sie“ schreiben und jede Oberfläche gleichwertig in DE und EN führen."
+    ],
+    "donts": [
+      "Don't eine zweite Akzent- oder Statusfarbe einführen — auch Fehler sprechen Orange (The One Signal Rule).",
+      "Don't Karten mit Schlagschatten, Deko-Glas oder Stock-Optik bauen; Schatten gehören ausschließlich dem schwebenden Chat-Layer.",
+      "Don't eine zweite Schriftfamilie oder einen Mono-Font laden; tabulare Ziffern von Archivo übernehmen die Zahlensprache.",
+      "Don't Radius auf Sektionsflächen oder Services-Zeilen legen — Rundung ist Pills (9999px), Tiles (12px), Chat (16px) und Inputs (8px) vorbehalten.",
+      "Don't reines Weiß (#ffffff), reines Schwarz (#000000) oder eigenständige Grau-Borders verwenden; Linien sind immer Off-White bei 10 %.",
+      "Don't unbestätigte Inhalte gestalten: keine erfundenen Kennzahlen, Testimonials oder Logos — Platzhalter (wie das Referenz-Tile „Screenshot folgt“) sind als eigene Komposition der Welt gekennzeichnet."
+    ]
+  }
+}

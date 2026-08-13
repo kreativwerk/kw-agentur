@@ -40,5 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Impeccable QA-Artefakte
-.impeccable/
+# Impeccable QA-Artefakte (Screenshots/Skripte lokal, design.json wird versioniert)
+.impeccable/review/
+.impeccable/*.mjs
+.impeccable/mocks/
