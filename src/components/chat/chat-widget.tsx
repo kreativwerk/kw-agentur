@@ -22,6 +22,7 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
   const [errorText, setErrorText] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
   useEffect(() => {
@@ -40,7 +41,27 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      // Fokus-Falle: Tab bleibt im Dialog
+      if (event.key === "Tab" && dialogRef.current) {
+        const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, input, select, textarea, a[href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (event.shiftKey && (active === first || !dialogRef.current.contains(active))) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && active === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
     if (open) window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -82,7 +103,6 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
     }
   }, [input, busy, submitted, apiMessages, draft, lang, dict.chat.submitted, dict.chat.error]);
 
-  const filledFields = inquiryFieldOrder.filter((field) => draft[field]);
 
   return (
     <>
@@ -99,6 +119,7 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={dialogRef}
             role="dialog"
             aria-modal="true"
             aria-label={dict.chat.title}
@@ -129,25 +150,40 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
               </div>
             ) : (
               <>
-                {filledFields.length > 0 && (
-                  <div className="border-b border-line bg-surface-2 px-5 py-3">
-                    <p className="text-xs font-bold uppercase tracking-wide text-muted">
-                      {dict.chat.draftTitle}
-                    </p>
-                    <ul className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
-                      {filledFields.map((field) => (
-                        <li key={field} className="text-xs">
-                          <span className="text-muted">
-                            {dict.chat.fields[field]}:
-                          </span>{" "}
-                          <span className="font-semibold text-foreground">
-                            {String(draft[field]).slice(0, 40)}
+                {/* Signatur der Seite: die Anfrage füllt sich sichtbar,
+                    leere Slots von Anfang an — das Gespräch baut das Formular. */}
+                <div className="border-b border-line bg-surface-2 px-5 py-3">
+                  <p className="text-xs font-bold uppercase tracking-wide text-muted">
+                    {dict.chat.draftTitle}
+                  </p>
+                  <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1">
+                    {inquiryFieldOrder.map((field) => {
+                      const value = draft[field];
+                      return (
+                        <li key={field} className="flex min-w-0 items-baseline gap-1.5 text-xs">
+                          <span className="shrink-0 text-muted">
+                            {dict.chat.fields[field]}
                           </span>
+                          <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                              key={value ? String(value) : "empty"}
+                              initial={reduce || !value ? false : { opacity: 0, y: 4 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className={
+                                value
+                                  ? "truncate font-semibold text-accent"
+                                  : "text-muted/70 select-none"
+                              }
+                            >
+                              {value ? String(value) : "———"}
+                            </motion.span>
+                          </AnimatePresence>
                         </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                      );
+                    })}
+                  </ul>
+                </div>
 
                 <div
                   ref={scrollRef}

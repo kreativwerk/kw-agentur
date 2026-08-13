@@ -1,25 +1,28 @@
 "use client";
 
 import type { Dict } from "@/lib/i18n";
-import { Reveal } from "./motion";
+import { InView } from "./motion";
 
 /**
  * Drei große Leistungszeilen statt gleichförmiger Karten: volle Breite,
  * Trennlinien, Orange-Sweep beim Hover — Titel und Text wechseln auf
- * Hintergrundfarbe, damit der Kontrast auf Orange stimmt.
+ * Hintergrundfarbe, damit der Kontrast auf Orange stimmt. Entrance:
+ * Clip-Reveal von links, gestaffelt — kein Sektions-Fade.
  */
 export function Services({ dict }: { dict: Dict }) {
   return (
     <section id="leistungen" className="mx-auto w-full max-w-6xl px-5 py-28 sm:px-8">
-      <Reveal>
-        <h2 className="display text-[clamp(2.2rem,6vw,3.8rem)]">
-          {dict.services.heading}
-        </h2>
-      </Reveal>
+      <h2 className="display text-[clamp(2.2rem,6vw,3.8rem)]">
+        {dict.services.heading}
+      </h2>
 
-      <div className="mt-14 border-t border-line">
+      <InView className="mt-14 border-t border-line">
         {dict.services.items.map((item, i) => (
-          <Reveal key={item.title} delay={i * 0.08}>
+          <div
+            key={item.title}
+            className="clip-reveal"
+            style={{ transitionDelay: `${i * 0.12}s` }}
+          >
             <div className="sweep group grid gap-4 border-b border-line px-2 py-10 transition-colors duration-300 sm:grid-cols-[1fr_1.4fr] sm:gap-10 sm:px-4">
               <h3 className="display text-3xl sm:text-4xl group-hover:text-background transition-colors duration-300">
                 {item.title}
@@ -40,9 +43,9 @@ export function Services({ dict }: { dict: Dict }) {
                 </ul>
               </div>
             </div>
-          </Reveal>
+          </div>
         ))}
-      </div>
+      </InView>
     </section>
   );
 }

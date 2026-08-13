@@ -27,7 +27,7 @@ Kreativwerk baut nicht nur Websites, sondern auch Apps und maßgeschneiderte Sof
 - Zweisprachig Deutsch/Englisch mit Sprachumschalter (bestätigt). Deutsch ist Primärsprache.
 - KI-Chatbot führt durch die Projektanfrage: Projekttyp, Beschreibung, Budgetrahmen, Zeitrahmen, Kontaktdaten. Angaben werden in einer Datenbank gespeichert (Supabase; Nutzer: „neue Supabase, wenn überhaupt nötig").
 - Animationen sind ein Kernmerkmal; Nutzer plant zusätzlich Higgsfield und „Hyperframe" für generierte Animationen/Assets (Vorlagen folgen).
-- Referenzprojekte des Nutzers (bekannt aus Supabase-Konto): „Filan Filani", „Zeki Rent". Details/Assets stehen noch aus — nicht erfinden, Platzhalter kennzeichnen.
+- Referenzprojekte: zehn vom Nutzer bestätigte, umgesetzte Websites (siehe „Evidence on Hand"). Screenshots/Logos folgen vom Nutzer — nicht erfinden, Platzhalter kennzeichnen.
 - OFFEN: echtes Logo existiert auf kw-agentur.de, war aus dieser Umgebung nicht abrufbar (Netzwerk-Policy). Wortmarke „KW / Kreativwerk" als austauschbarer Platzhalter; Logo-Datei folgt vom Nutzer.
 
 ## Brand Commitments
@@ -38,8 +38,9 @@ Kreativwerk baut nicht nur Websites, sondern auch Apps und maßgeschneiderte Sof
 
 ## Evidence on Hand
 
-- Zwei reale Kundenprojekte existieren (Filan Filani, Zeki Rent), aber ohne freigegebene Beschreibungen, Screenshots oder Testimonials — keine Fallstudien-Details, Zahlen oder Zitate erfinden.
-- Keine Testimonials, Kennzahlen oder Pressestimmen vorhanden — nicht fabrizieren.
+- Zehn vom Nutzer bestätigte, umgesetzte Kundenwebsites (Referenzen in `src/lib/projects.ts`): alotec-gmbh.de, edelfrei.com, kfzgutachtererlangen.de, jan-dimov.de, ziebert-bad.de, kosovo-personal.com, Birner Elektrotechnik (Domain unbestätigt, angenommen birner-elektrotechnik.de), sw-pv.de, elektro-an.de, sum-makler.de. Screenshots/Logos konnten aus dieser Umgebung nicht abgerufen werden (Netzwerk-Policy) — Platzhalter im Build, echte Shots folgen.
+- Zusätzlich existieren zwei App-/Softwareprojekte in Supabase („Filan Filani", „Zeki Rent") — nicht als Website-Referenz gelistet, keine freigegebenen Details.
+- Keine Testimonials, Kennzahlen oder Pressestimmen vorhanden — nicht fabrizieren. Unbestätigte kommerzielle Zusagen (Preise, Reaktionszeiten, „kostenlos") gehören nicht in die Copy.
 
 ## Product Principles
 

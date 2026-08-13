@@ -109,7 +109,8 @@ textarea {
   margin-block: -0.06em;
 }
 
-/* Accent sweep on service rows */
+/* Orange-Sweep — die wiederkehrende Geste der Welt:
+   Services-Zeilen, Referenz-Tiles und sekundäre Pills teilen sie. */
 .sweep {
   position: relative;
   isolation: isolate;
@@ -124,10 +125,53 @@ textarea {
   transform-origin: bottom;
   transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
+.sweep-pill {
+  overflow: hidden;
+}
 @media (hover: hover) {
-  .sweep:hover::after {
+  .sweep:hover::after,
+  a:hover > .sweep-tile::after {
     transform: scaleY(1);
     transform-origin: top;
+  }
+}
+.sweep-tile::after {
+  z-index: 0;
+}
+.sweep-tile > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Linien-Zug im Prozess */
+.line-draw {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.in-view .line-draw {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .line-draw {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Clip-Reveal der Services-Zeilen */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.in-view .clip-reveal,
+.in-view.clip-reveal {
+  clip-path: inset(0 0 0 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .clip-reveal {
+    clip-path: none;
+    transition: none;
   }
 }
 

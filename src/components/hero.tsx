@@ -19,7 +19,7 @@ export function Hero({ dict, lang }: { dict: Dict; lang: Locale }) {
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center sm:px-8">
         <h1 className="display text-[clamp(3rem,11vw,6rem)]">
           <LineReveal lines={[dict.hero.line1, dict.hero.line2]} delay={0.15} />
         </h1>
@@ -37,7 +37,7 @@ export function Hero({ dict, lang }: { dict: Dict; lang: Locale }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7, ease: [0.19, 1, 0.22, 1] }}
-          className="mt-10 flex flex-wrap items-center gap-4"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <button
             type="button"
@@ -48,7 +48,7 @@ export function Hero({ dict, lang }: { dict: Dict; lang: Locale }) {
           </button>
           <Link
             href={`/${lang}#referenzen`}
-            className="rounded-full border border-line px-7 py-3.5 font-semibold text-foreground no-underline transition-colors hover:border-foreground"
+            className="sweep sweep-pill rounded-full border border-line px-7 py-3.5 font-semibold text-foreground no-underline transition-colors duration-300 hover:border-accent hover:text-background"
           >
             {dict.hero.ctaSecondary}
           </Link>

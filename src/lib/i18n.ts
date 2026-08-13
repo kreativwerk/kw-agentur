@@ -47,7 +47,7 @@ const de = {
     steps: [
       {
         title: "Erstgespräch",
-        text: "Wir hören zu: Ziele, Zielgruppe, Budgetrahmen. Unverbindlich und kostenlos.",
+        text: "Wir hören zu: Ziele, Zielgruppe, Budgetrahmen — und sagen ehrlich, was sinnvoll ist.",
       },
       {
         title: "Konzept & Design",
@@ -74,7 +74,7 @@ const de = {
       "Kreativwerk ist der digitale Partner für den Mittelstand: eine Agentur, die zuhört, klar plant und selbst entwickelt — ohne Umwege über Dritte.",
   },
   contact: {
-    heading: "Lass uns bauen.",
+    heading: "Bauen wir.",
     sub: "Erzählen Sie unserem Assistenten von Ihrem Projekt — er stellt die richtigen Fragen und Ihre Anfrage landet direkt bei uns.",
     cta: "Anfrage starten",
     or: "oder klassisch per E-Mail:",
@@ -95,7 +95,7 @@ const de = {
     close: "Schließen",
     draftTitle: "Ihre Anfrage",
     submitted:
-      "Vielen Dank! Ihre Anfrage ist eingegangen — wir melden uns in der Regel innerhalb eines Werktags.",
+      "Vielen Dank! Ihre Anfrage ist eingegangen — wir melden uns so schnell wie möglich bei Ihnen.",
     error:
       "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie uns per E-Mail.",
     fields: {
@@ -159,7 +159,7 @@ const en: Dict = {
     steps: [
       {
         title: "First call",
-        text: "We listen: goals, audience, budget. Free and without obligation.",
+        text: "We listen: goals, audience, budget — and tell you honestly what makes sense.",
       },
       {
         title: "Concept & design",
@@ -207,7 +207,7 @@ const en: Dict = {
     close: "Close",
     draftTitle: "Your inquiry",
     submitted:
-      "Thank you! Your inquiry has been received — we usually reply within one business day.",
+      "Thank you! Your inquiry has been received — we'll get back to you as soon as possible.",
     error:
       "Something went wrong. Please try again or contact us via email.",
     fields: {
