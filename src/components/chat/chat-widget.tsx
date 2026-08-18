@@ -80,6 +80,11 @@ export function ChatWidget({ dict, lang }: { dict: Dict; lang: Locale }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: apiMessages, userMessage: text, draft, lang }),
       });
+      // Statisches Hosting ohne Node-API (z. B. IONOS): direkt zum Formular
+      if (response.status === 404 || response.status === 405) {
+        setFormMode(true);
+        return;
+      }
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       if (data.fallback) {

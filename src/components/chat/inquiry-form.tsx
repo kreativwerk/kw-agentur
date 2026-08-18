@@ -4,8 +4,9 @@ import { useState } from "react";
 import type { Dict, Locale } from "@/lib/i18n";
 
 /**
- * Klassisches Anfrage-Formular — Fallback, wenn der KI-Assistent
- * nicht konfiguriert ist (kein ANTHROPIC_API_KEY).
+ * Klassisches Anfrage-Formular. Sendet zuerst an die Node-API (/api/inquiry,
+ * Vercel & Co.); antwortet die nicht (404/405/503, z. B. auf statischem
+ * PHP-Hosting wie IONOS), geht dieselbe Anfrage an /anfrage.php (Mail-Versand).
  */
 export function InquiryForm({ dict, lang }: { dict: Dict; lang: Locale }) {
   const [state, setState] = useState<"idle" | "busy" | "done" | "error">("idle");
@@ -15,13 +16,24 @@ export function InquiryForm({ dict, lang }: { dict: Dict; lang: Locale }) {
     if (state === "busy") return;
     setState("busy");
     const form = new FormData(event.currentTarget);
-    const payload = Object.fromEntries(form.entries());
+    const payload = JSON.stringify({
+      ...Object.fromEntries(form.entries()),
+      locale: lang,
+    });
+    const headers = { "Content-Type": "application/json" };
     try {
-      const response = await fetch("/api/inquiry", {
+      let response = await fetch("/api/inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, locale: lang }),
+        headers,
+        body: payload,
       });
+      if ([404, 405, 503].includes(response.status)) {
+        response = await fetch("/anfrage.php", {
+          method: "POST",
+          headers,
+          body: payload,
+        });
+      }
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       setState("done");
     } catch {
@@ -39,6 +51,15 @@ export function InquiryForm({ dict, lang }: { dict: Dict; lang: Locale }) {
 
   return (
     <form onSubmit={onSubmit} className="space-y-3">
+      {/* Honeypot gegen Spam-Bots — bleibt für Menschen unsichtbar */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
       <select name="project_type" required defaultValue="" className={inputClass}>
         <option value="" disabled>
           {f.project_type} *

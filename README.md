@@ -27,9 +27,27 @@ Routen: `/de` und `/en` (Weiterleitung via `src/proxy.ts` nach Accept-Language).
 | `SUPABASE_URL` | Projekt-URL des Supabase-Projekts |
 | `SUPABASE_SECRET_KEY` | Service-Role-Key (nur serverseitig) |
 
-## Datenbank
+## Hosting-Variante A: IONOS-Webspace (aktueller Plan — PHP-Formular)
 
-Migration in `supabase/migrations/0001_project_inquiries.sql` — anlegen mit dem Supabase SQL-Editor oder `supabase db push`. RLS ist aktiv; Inserts laufen ausschließlich über den Service-Key in den Route Handlers.
+```bash
+npm run build:static
+```
+
+Danach den kompletten Inhalt von **`out/`** per FTP auf den Webspace laden. Enthalten:
+
+- `index.html` — Sprachweiterleitung auf `/de/` bzw. `/en/`
+- `de/`, `en/` — die komplette Website (statisch)
+- `anfrage.php` — nimmt das Anfrage-Formular entgegen und sendet es per E-Mail an `info@kw-agentur.de` (Empfänger/Absender oben in der Datei anpassen; Absender-Adresse muss zur Domain gehören und im IONOS-Postfach existieren)
+
+Der Chat-Assistent erkennt statisches Hosting automatisch (keine Node-API) und zeigt direkt das klassische Formular; das Formular sendet an `anfrage.php`. Spam-Schutz per Honeypot-Feld.
+
+## Hosting-Variante B: Vercel (Node — voller Chatbot)
+
+Repo bei Vercel importieren, `ANTHROPIC_API_KEY` setzen — der KI-Assistent läuft dann über `/api/chat`. Das Formular nutzt automatisch `/api/inquiry`.
+
+## Datenbank (aktuell pausiert)
+
+Supabase ist vorbereitet, aber bewusst nicht aktiv (Free-Limit der Organisation erreicht). Migration in `supabase/migrations/0001_project_inquiries.sql` — bei Bedarf Projekt anlegen, `SUPABASE_URL`/`SUPABASE_SECRET_KEY` setzen, fertig. RLS ist aktiv; Inserts laufen ausschließlich über den Service-Key in den Route Handlers.
 
 ## Offene Platzhalter (vor Livegang ersetzen)
 
